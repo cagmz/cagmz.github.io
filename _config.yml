@@ -3,15 +3,15 @@
 # Site wide configuration
 ####################################
 #
-title: Leonids
+title: Carlos Adrian Gomez
 email: 
-description: A simple and awesome blog theme powered by jekyll.
+description: A software developer living in southern California.
 # the base hostname & protocol for your site
 # If your project is placed in https://github.com/yourname/yourname.github.io at master branch
 # Then, the 'url' is: http://yourname.github.io
 # If your project is placed in another repository as a gh-pages branch, like: https://github.com/yourname/projectname
 # Then, the 'url' is: http://yourname.github.io/projectname
-url: 
+url: http://cagmz.github.io
 
 #
 ###################################
@@ -37,8 +37,8 @@ kramdown:
 owner:
   name: Carlos Adrian Gomez
   avatar: avatar.jpg
-  job: "PHP & Ruby Dev"
-  bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  job: ""
+  bio: ""
   email:
   disqus-shortname:
   twitter: #username
