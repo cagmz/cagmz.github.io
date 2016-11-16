@@ -19,7 +19,7 @@ url: http://cagmz.github.io
 ####################################
 #
 markdown:    kramdown
-highlighter:  pygments
+highlighter:  rouge
 excerpt_separator: <!--more-->
 
 kramdown:
