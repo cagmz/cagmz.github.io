@@ -1,0 +1,27 @@
+---
+layout: page
+title:  Projects
+permalink: /projects/
+---
+
+<div class="projects">
+{% for post in site.tags.project %}
+	<div class="project">
+		<h3>{{ post.title }}</h3>
+		<p>{{post.excerpt}}</p>
+		<p><strong>Tools</strong>:
+		<!-- Jekyll doesn't have a remove filter for arrays! -->
+		{% assign my_array = "" | split:"|"  %}
+		{% for t in post.tags %}
+			{% unless t == 'project' %} 
+				{% assign my_array = my_array | push: t  %}
+			{% endunless %}
+		{% endfor %}
+		{{ my_array | array_to_sentence_string }}
+		</p>
+		<p>
+		{{ post.content }}
+		</p>
+	</div>
+{% endfor %}
+</div>
