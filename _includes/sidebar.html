@@ -1,4 +1,8 @@
-{% if page.author %} {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %} {% endif %}
+{% if page.author %} 
+    {% assign author = site.data.authors[page.author] %}
+{% else %}
+    {% assign author = site.owner %} 
+{% endif %}
 
 <div class="cover-card table-cell table-bottom">
   {% if author.avatar %}
@@ -9,12 +13,23 @@
   <span class="author_bio mbm">{{ author.bio }}</span>
   <nav class="nav">
     <ul class="nav-list">
-      {% for page in site.pages %} {% if page.title %}
-      <li class="nav-item">
-        <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>{% unless forloop.last %}
-        <span>/</span>{% endunless %}
-      </li>
-      {% endif %} {% endfor %}
+        <!-- Create an array of nav-pages -->
+        {% assign nav-pages = "" | split:"|"  %}
+        {% for page in site.pages %} 
+            {% if page.tags contains 'nav' %}
+                {% assign nav-pages = nav-pages | push: page  %}
+            {% endif %} 
+        {% endfor %}
+        <!-- Sort array by tags, which contain an int for their order -->
+        {% assign nav-pages = nav-pages | sort: "tags" %}
+        {% for page in nav-pages %} 
+        <li class="nav-item">
+            <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
+            {% unless forloop.last %}
+                <span id="sidebar-delim"> / </span>
+            {% endunless %}
+        </li>
+      {% endfor %}
     </ul>
   </nav>
   {% include social-links.html %}
